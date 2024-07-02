@@ -1,18 +1,12 @@
-'use client';
 import { ArrowRight } from '@mui/icons-material';
 import Link from 'next/link';
 import styles from '@/app/ui/home.module.css';
 import { lusitana } from '@/app/ui/fonts';
 import Image from 'next/image';
 import Logo from '@/app/ui/logo';
-import { Typography} from '@mui/material';
-import styled from '@emotion/styled';
+import Footer from './ui/footer';
 
 export default function Page() {
-  const Footer = styled('footer')({
-    backgroundColor: '#ffffff',
-    padding: '20px',
-  });
   return (
     <main className="flex min-h-screen flex-col p-6">
       <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-52">
@@ -29,7 +23,7 @@ export default function Page() {
             href="/login"
             className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
           >
-            <span>Log in</span> <ArrowRight className="w-5 md:w-6" />
+            <span>Se connecter</span> <ArrowRight className="w-5 md:w-6" />
           </Link>
         </div>
         <div className="flex items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12">
@@ -38,28 +32,14 @@ export default function Page() {
           width={1200}
           height={960}
           priority
-          className="hidden md:block"
-          alt="Screenshots of the OrdoQr project showing desktop version"
-          />
-          <Image
-          src="/seam.png"
-          width={560}
-          height={620}
-          priority
           style={{ width: 'auto', height: 'auto' }}
-          className="block md:hidden"
-          alt="Screenshot of the OrdoQr project showing mobile version"
+          alt="Screenshots of the OrdoQr project showing desktop version"
           />
         </div>
       </div>
       <br></br>
       <hr></hr>
-      <Footer>
-        <Typography variant="h6" align="center" gutterBottom></Typography>
-        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          OrdoQr - La technologie pour faciliter la gestion de vos ordonnances.
-        </Typography>
-      </Footer>
+      <Footer />
     </main>
   );
 }

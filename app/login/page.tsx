@@ -4,6 +4,7 @@ import { Box, Button, Container, TextField, Typography, Grid } from '@mui/materi
 import Image from 'next/image';
 import styled from '@emotion/styled';
 import Logo from '../ui/logo';
+import Footer from '../ui/footer';
 
 const LoginBox = styled(Box)({
   display: 'flex',
@@ -35,11 +36,7 @@ const FormBox = styled(Box)({
   width: '100%',
   maxWidth: '400px',
 });
-const Footer = styled('footer')({
-    backgroundColor: '#ffffff',
-    padding: '20px',
-    flexDirection: 'column',
-});
+
 const LogoContainer = styled('div')({
     height: '80px', 
     display: 'flex',
@@ -71,7 +68,7 @@ export default function LoginPage() {
         <Grid item xs={12} md={6}>
           <FormContainer>
             <Typography variant="h4" component="h1" gutterBottom>
-              Login
+              Se connecter
             </Typography>
             <FormBox component="form">
               <TextField
@@ -88,7 +85,7 @@ export default function LoginPage() {
                 type="password"
               />
               <Button className=' bg-blue-500' type="submit" variant="contained" color="primary" fullWidth>
-                Login
+                Se connecter
               </Button>
             </FormBox>
           </FormContainer>
@@ -97,12 +94,7 @@ export default function LoginPage() {
     </LoginBox>
     <br></br>
       <hr></hr>
-      <Footer>
-        <Typography variant="h6" align="center" gutterBottom></Typography>
-        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          OrdoQr - La technologie pour faciliter la gestion de vos ordonnances.
-        </Typography>
-      </Footer>
+      <Footer />
     </main>
   );
 }
