@@ -5,6 +5,7 @@ import Image from 'next/image';
 import styled from '@emotion/styled';
 import Logo from '../ui/logo';
 import Footer from '../ui/footer';
+import Link from 'next/link';
 
 const LoginBox = styled(Box)({
   display: 'flex',
@@ -45,7 +46,6 @@ const LogoContainer = styled('div')({
   });
 
 export default function LoginPage() {
-    
   return (
     <main className="flex min-h-screen flex-col p-6">
     <LogoContainer className='rounded-lg bg-blue-500 p-4'>
@@ -84,9 +84,11 @@ export default function LoginPage() {
                 fullWidth
                 type="password"
               />
-              <Button className=' bg-blue-500' type="submit" variant="contained" color="primary" fullWidth>
-                Se connecter
-              </Button>
+              <Link href='/medecin'>
+                <Button className='bg-blue-500' type="submit" variant="contained" color="primary" fullWidth>
+                  Se connecter
+                </Button>
+              </Link>
             </FormBox>
           </FormContainer>
         </Grid>

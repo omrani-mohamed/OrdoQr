@@ -2,6 +2,7 @@ import SideNav from '@/app/ui/medecin/sidenav';
 import Link from 'next/link';
 import Logo from '../ui/logo';
 import Footer from '../ui/footer';
+import AccountMenu from '../ui/medecin/AccountMenu';
 
 export default function Layout({
     children,
@@ -15,6 +16,9 @@ export default function Layout({
             <Link href='/'>
                 <Logo />
             </Link>
+            <div className="flex mb-1 ml-auto p-2">
+            <AccountMenu/>
+            </div>
         </div> 
         <div className="flex h-screen flex-col md:flex-row md:overflow-hidden">
         <div className="w-full flex-none md:w-64">
