@@ -16,7 +16,7 @@ import { usePathname } from 'next/navigation';
 const links = [
   { name: "Page d'acceuil", href: '/medecin', icon: HomeIcon },
   { name: 'Dashboard', href: '/medecin/dashboard', icon: PresentationChartBarIcon},
-  { name: 'Patients', href: '/medecin/listeDePatients', icon: UserGroupIcon },
+  { name: 'Patients', href: '/medecin/liste-de-patients', icon: UserGroupIcon },
   { name: "Historique d'ordonnances", href:'/medecin/ordonnances', icon:ClipboardDocumentListIcon}
 ];
 

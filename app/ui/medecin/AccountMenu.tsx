@@ -8,10 +8,11 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
-import Settings from '@mui/icons-material/Settings';
+import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import Logout from '@mui/icons-material/Logout';
-import Link
- from 'next/link';
+import Link from 'next/link';
+import { HelpOutline } from '@mui/icons-material';
+
 export default function AccountMenu() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -72,27 +73,24 @@ export default function AccountMenu() {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem onClick={handleClose}>
-          <Avatar /> Profile
-        </MenuItem>
-        <Link href="/">
+        <Link href="/medecin/donnees-personnelles">
             <MenuItem onClick={handleClose}>
-            <Avatar /> My account
+            <Avatar /> Mon compte personnel
             </MenuItem>
         </Link>
         <Divider />
         <MenuItem onClick={handleClose}>
           <ListItemIcon>
-            <Settings fontSize="small" />
+            <HelpOutlineOutlinedIcon/>
           </ListItemIcon>
-          Settings
+          Besoin d`aide ?
         </MenuItem>
         <Link href='/login'>
         <MenuItem onClick={handleClose}>
             <ListItemIcon>
                 <Logout fontSize="small" />
             </ListItemIcon>
-                Logout
+                Déconnexion
         </MenuItem>
         </Link>
       </Menu>
