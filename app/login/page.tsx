@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Button, Container, TextField, Typography, Grid } from '@mui/material';
+import { Box, Button, Container, TextField, Typography, Grid, FormLabel } from '@mui/material';
 import Image from 'next/image';
 import styled from '@emotion/styled';
 import Logo from '../ui/logo';
@@ -52,7 +52,7 @@ export default function LoginPage() {
         <Logo />
     </LogoContainer>
     <LoginBox>
-      <Grid container>
+      <Grid container spacing={2}>
         <Grid item xs={12} md={6}>
           <SVGContainer className='rounded-lg'>
             <Image
@@ -89,6 +89,9 @@ export default function LoginPage() {
                   Se connecter
                 </Button>
               </Link>
+              <Grid item xs={12}>
+                <FormLabel>Vous n&apos;avez pas de compte ? <Link className="text-blue-500" href="/login/register">Créer un compte</Link></FormLabel>
+              </Grid>
             </FormBox>
           </FormContainer>
         </Grid>
