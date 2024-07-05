@@ -1,3 +1,5 @@
+import { DeletePatient , UpdatePatient } from "./buttons";
+
 export default async function Table() {
     return (
       <div className="mt-6 flow-root">
@@ -22,6 +24,8 @@ export default async function Table() {
                       <p>date</p>
                     </div>
                     <div className="flex justify-end gap-2">
+                      <UpdatePatient id={""}/>
+                      <DeletePatient id={""} />
                     </div>
                   </div>
                 </div>

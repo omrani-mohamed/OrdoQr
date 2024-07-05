@@ -1,4 +1,4 @@
-import {PlusIcon } from '@heroicons/react/24/outline';
+import {PlusIcon,PencilIcon,TrashIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 
 export function CreatePatient() {
@@ -10,6 +10,28 @@ export function CreatePatient() {
         <span className="hidden md:block">Créer un Patient</span>{' '}
         <PlusIcon className="h-5 md:ml-4" />
       </Link>
+    );
+  }
+
+  export function UpdatePatient({ id }: { id: string }) {
+    return (
+      <Link
+      href={`/medecin/liste-de-patients/${id}/edit`}
+      className="rounded-md border p-2 hover:bg-gray-100"
+      >
+        <PencilIcon className="w-5" />
+      </Link>
+    );
+  }
+  
+  export function DeletePatient({ id }: { id: string }) {
+    return (
+      <form>
+        <button className="rounded-md border p-2 hover:bg-gray-100">
+          <span className="sr-only">Supprimer</span>
+          <TrashIcon className="w-5" />
+        </button>
+      </form>
     );
   }
   
