@@ -19,6 +19,9 @@ export default function CreatePatientForm(){
     display: 'flex',
     minHeight: '100vh',
     flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '0.75rem',
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

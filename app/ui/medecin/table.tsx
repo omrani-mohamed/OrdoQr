@@ -2,7 +2,7 @@ export default async function Table() {
     return (
       <div className="mt-6 flow-root">
         <div className="inline-block min-w-full align-middle">
-          <div className="rounded-lg bg-gray-50 p-2 md:pt-0">
+          <div className="rounded-lg bg-gray-100 p-2 md:pt-0">
             <div className="md:hidden">
                 <div
                   className="mb-2 w-full rounded-md bg-white p-4"
@@ -12,7 +12,7 @@ export default async function Table() {
                       <div className="mb-2 flex items-center">
                         <p>name</p>
                       </div>
-                      <p className="text-sm text-gray-500">email</p>
+                      <p className="text-sm text-gray-600">email</p>
                     </div>
                   </div>
                   <div className="flex w-full items-center justify-between pt-4">
