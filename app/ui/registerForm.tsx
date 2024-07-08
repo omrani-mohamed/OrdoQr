@@ -45,25 +45,22 @@ export default function RegisterForm(){
             <br />
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
-                  <TextField label="Nom" variant="outlined" margin="normal" fullWidth type="text"/>
+                  <TextField label="Nom" variant="outlined" margin="normal" fullWidth type="text" required/>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                  <TextField label="Prenom" variant="outlined" margin="normal" fullWidth type="text"/>
+                  <TextField label="Prenom" variant="outlined" margin="normal" fullWidth type="text" required/>
                 </Grid>
                 <Grid item xs={12}>
-                  <TextField label="Email" variant="outlined" margin="normal" fullWidth type="email"/>
+                  <TextField label="Email" variant="outlined" margin="normal" fullWidth type="email" required/>
                 </Grid>
                 <Grid item xs={12}>
-                  <TextField label="Numero téléphone" variant="outlined" margin="normal" fullWidth type="number" />
+                  <TextField label="Numero téléphone" variant="outlined" margin="normal" fullWidth type="number" required/>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                  <TextField label="Mot de passe" variant="outlined" margin="normal" fullWidth type="password"/>
+                  <TextField label="Mot de passe" variant="outlined" margin="normal" fullWidth type="password" required/>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                  <TextField label="Confirmer le mot de passe" variant="outlined" margin="normal" fullWidth type="password"/>
-                </Grid>
-                <Grid item xs={12}>
-                  <TextField label="Adresse Cabinet" variant="outlined" margin="normal" fullWidth type="text" />
+                  <TextField label="Confirmer le mot de passe" variant="outlined" margin="normal" fullWidth type="password" required/>
                 </Grid>
                 <Grid item xs={12}>
                   <FormControl component="fieldset">
@@ -77,6 +74,9 @@ export default function RegisterForm(){
                 <Grid item xs={12}>
                   <FormLabel>Dans le cas où vous êtes médecin : </FormLabel>
                   <TextField label="Spécialité" variant="outlined" margin="normal" fullWidth type="text" />
+                  <Grid item xs={12}>
+                  <TextField label="Adresse Cabinet" variant="outlined" margin="normal" fullWidth type="text" />
+                </Grid>
                 </Grid>
                 <Grid item xs={12}>
                   <Button className='bg-blue-500' type="submit" variant="contained" color="primary" fullWidth>

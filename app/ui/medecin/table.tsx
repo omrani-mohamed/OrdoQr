@@ -24,8 +24,8 @@ export default async function Table() {
                       <p>date</p>
                     </div>
                     <div className="flex justify-end gap-2">
-                      <UpdatePatient id={""}/>
-                      <DeletePatient id={""} />
+                      <UpdatePatient id={"01"}/>
+                      <DeletePatient id={"01"} />
                     </div>
                   </div>
                 </div>
