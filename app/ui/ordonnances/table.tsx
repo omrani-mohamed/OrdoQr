@@ -1,4 +1,5 @@
-import { DeletePatient , UpdatePatient } from "./buttons";
+import { DeletePerscription, UpdatePerscription } from './buttons'
+
 
 export default async function Table() {
     return (
@@ -12,20 +13,19 @@ export default async function Table() {
                   <div className="flex items-center justify-between border-b pb-4">
                     <div>
                       <div className="mb-2 flex items-center">
-                        <p>name</p>
+                        <p>Date de creation</p>
                       </div>
-                      <p className="text-sm text-gray-600">email</p>
                     </div>
                   </div>
                   <div className="flex w-full items-center justify-between pt-4">
                     <div>
                       <p className="text-xl font-medium">
                       </p>
-                      <p>date</p>
+                      <p>Patient</p>
                     </div>
                     <div className="flex justify-end gap-2">
-                      <UpdatePatient id={"01"}/>
-                      <DeletePatient id={"01"}/>
+                      <UpdatePerscription refrence='001'/>
+                      <DeletePerscription refrence='001'/>
                     </div>
                   </div>
                 </div>
@@ -34,25 +34,10 @@ export default async function Table() {
               <thead className="rounded-lg text-left text-sm font-normal">
                 <tr>
                   <th scope="col" className="px-4 py-5 font-medium sm:pl-6">
-                    Nom
+                    Date de creation
                   </th>
                   <th scope="col" className="px-4 py-5 font-medium sm:pl-6">
-                    Prenom
-                  </th>
-                  <th scope="col" className="px-3 py-5 font-medium">
-                    age
-                  </th>
-                  <th scope="col" className="px-4 py-5 font-medium sm:pl-6">
-                    Sexe
-                  </th>
-                  <th scope="col" className="px-3 py-5 font-medium">
-                    Email
-                  </th>
-                  <th scope="col" className="px-3 py-5 font-medium">
-                    Diagnostic
-                  </th>
-                  <th scope="col" className="px-3 py-5 font-medium">
-                    Date de derniere consultation
+                    Patient
                   </th>
                   <th scope="col" className="relative py-3 pl-6 pr-3">
                     <span className="sr-only">Edit</span>
@@ -70,24 +55,9 @@ export default async function Table() {
                     <td className="whitespace-nowrap px-3 py-3">
                       
                     </td>
-                    <td className="whitespace-nowrap px-3 py-3">
-                      
-                    </td>
-                    <td className="whitespace-nowrap px-3 py-3">
-                      
-                    </td>
-                    <td className="whitespace-nowrap px-3 py-3">
-                      
-                    </td>
-                    <td className="whitespace-nowrap px-3 py-3">
-                      
-                    </td>
-                    <td className="whitespace-nowrap px-3 py-3">
-                      
-                    </td>
                     <td className="flex justify-end gap-2 whitespace-nowrap px-6 py-4 text-sm">
                     <div className="flex justify-end gap-3">
-                      </div>
+                    </div>
                     </td>
                   </tr>
               </tbody>
