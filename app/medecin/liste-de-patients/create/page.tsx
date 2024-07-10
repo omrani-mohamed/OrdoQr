@@ -4,7 +4,7 @@ import CreatePatientForm from "@/app/ui/medecin/create-patient-form";
 export default function CreatePatientPage(){
   return (
     <main>
-            <Breadcrumbs
+        <Breadcrumbs
         breadcrumbs={[
           { label: 'Liste de patients', href: '/medecin/liste-de-patients/' },
           {

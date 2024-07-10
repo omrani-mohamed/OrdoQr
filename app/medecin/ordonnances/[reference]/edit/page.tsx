@@ -1,6 +1,6 @@
 import Breadcrumbs from "@/app/ui/medecin/breadcrumbs";
 
-export default function CreatePerscription ({ params }: { params: { reference: string } }){
+export default function EditPerscription ({ params }: { params: { reference: string } }){
     const reference = params.reference; 
     return (
         <main>
@@ -9,7 +9,7 @@ export default function CreatePerscription ({ params }: { params: { reference: s
                 { label: "Liste des ordonnances", href: '/medecin/ordonnances/' },
                 {
                     label: "Modifier l'Ordonnance",
-                    href: `/medecin/ordonnancess/${reference}/edit`,
+                    href: `/medecin/ordonnances/${reference}/edit`,
                     active: true,
                 },
                 ]}

@@ -16,7 +16,7 @@ export function CreatePerscription() {
   export function UpdatePerscription({ refrence }: { refrence: string }) {
     return (
       <Link
-      href={`/medecin/ordonnancess/${refrence}/edit`}
+      href={`/medecin/ordonnances/${refrence}/edit`}
       className="rounded-md border p-2 hover:bg-gray-100"
       >
         <PencilIcon className="w-5" />

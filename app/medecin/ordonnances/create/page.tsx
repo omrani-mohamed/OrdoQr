@@ -1,4 +1,7 @@
 import Breadcrumbs from "@/app/ui/medecin/breadcrumbs";
+import React from 'react';
+import { TextField, Button, Table, TableBody, TableCell, TableHead, TableRow, Typography, Box, TextareaAutosize } from '@mui/material';
+
 
 export default function CreatePerscription (){
     return (
@@ -16,3 +19,4 @@ export default function CreatePerscription (){
         </main>
     );
 }
+

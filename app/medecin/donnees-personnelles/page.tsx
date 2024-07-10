@@ -11,11 +11,10 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { Button } from '@/app/ui/medecin/button';
 
 
-
 export default function PersonalInfoPage() {
   return (
     <main>
-        <div className="rounded-md bg-gray-100 p-4 md:p-4">
+        <div className="rounded-md bg-gray-50 p-4 -mx-6 md:mx-0 md:p-4">
             <div>
             <h1 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>Ajouter ou modifier vos données personnelles</h1>
             </div>
@@ -80,7 +79,7 @@ export default function PersonalInfoPage() {
                             </input>
                         </div>
                     </div>
-                    {/* Date naissance */}
+                    {/* Title */}
                     <div className="mb-4">
                         <label className="mb-2 block text-sm font-medium">
                             Titre : 
@@ -192,10 +191,10 @@ export default function PersonalInfoPage() {
                     <hr />
                     <br />
                     <form>
-                        {/* Adresse */}
-                    <div className="mb-4 flex flex-row">
-                        <div className="relative mr-8 w-1/2">
-                            <label className="mb-2 block text-sm font-medium">
+                    {/* Adresse */}
+                    <div className="mb-4 flex lg:flex-row sm:flex-col max-sm:flex-col">
+                        <div className="relative lg:mr-8 sm:mr-0 lg:w-1/2 sm:w-auto sm:mb-4">
+                            <label className="mb-2 block text-sm font-medium ">
                                 Adresse cabinet : 
                             </label>
                             <input
@@ -206,7 +205,7 @@ export default function PersonalInfoPage() {
                             >
                             </input>
                         </div>
-                        <div className="relative mr-8">
+                        <div className="relative lg:mr-8 sm:mr-0 sm:mb-4 ">
                             <label className="mb-2 block text-sm font-medium">
                                 Ville : 
                             </label>
@@ -218,7 +217,7 @@ export default function PersonalInfoPage() {
                             >
                             </input>
                         </div>
-                        <div className="relative mr-8">
+                        <div className="relative sm:mr-0 sm:mb-4">
                             <label className="mb-2 block text-sm font-medium">
                                 code Postale : 
                             </label>

@@ -10,8 +10,8 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="flex min-h-screen flex-col p-6">
-      <div className="mb-2 flex h-20 items-end justify-start rounded-md bg-blue-500 p-2 md:h-20">
+    <main className="flex min-h-screen flex-col p-4">
+      <div className="mb-2 flex h-20 items-center justify-start rounded-md bg-blue-500 p-2 md:h-20">
         <Link href='/'>
           <Logo />
         </Link>
