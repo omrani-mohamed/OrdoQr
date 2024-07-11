@@ -3,7 +3,7 @@ import { DeletePerscription, UpdatePerscription } from './buttons'
 
 export default async function Table() {
     return (
-      <div className="mt-6 flow-root">
+      <div className="mt-6 flow-root max-sm:-mx-6">
         <div className="inline-block min-w-full align-middle">
           <div className="rounded-lg bg-gray-100 p-2 md:pt-0">
             <div className="md:hidden">

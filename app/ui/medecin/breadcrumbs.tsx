@@ -14,8 +14,8 @@ export default function Breadcrumbs({
   breadcrumbs: Breadcrumb[];
 }) {
   return (
-    <nav aria-label="Breadcrumb" className="mb-6 block">
-      <ol className={clsx(lusitana.className, 'flex text-sm md:text-2xl')}>
+    <nav aria-label="Breadcrumb" className="mb-6 block -mx-6">
+      <ol className={clsx(lusitana.className, 'flex sm:text-sm max-sm:text-xs md:text-2xl')}>
         {breadcrumbs.map((breadcrumb, index) => (
           <li
             key={breadcrumb.href}
