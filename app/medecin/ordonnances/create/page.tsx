@@ -7,7 +7,9 @@ export default function CreatePerscription (){
         <main>
             <Breadcrumbs
                 breadcrumbs={[
-                { label: "Liste des ordonnances", href: '/medecin/ordonnances/' },
+                {   label: "Liste des ordonnances",
+                    href: '/medecin/ordonnances/', 
+                },
                 {
                     label: 'Nouvelle Ordonnance',
                     href: `/medecin/ordonnances/create`,

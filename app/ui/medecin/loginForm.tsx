@@ -90,6 +90,7 @@ export default function LoginForm(){
                       </Button>
                     </Link>
                   </Grid>
+                  <br />
                   <Grid item xs={12}>
                     <FormLabel>Vous n&apos;avez pas de compte ? <Link className="text-blue-500" href="/register">Créer un compte</Link></FormLabel>
                   </Grid>
