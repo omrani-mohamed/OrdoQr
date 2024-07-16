@@ -4,7 +4,11 @@ import { Box, Button, Container, TextField, Typography, Grid, FormLabel } from '
 import Image from 'next/image';
 import styled from '@emotion/styled';
 import Logo from '../logo';
+import { ArrowRightIcon } from '@heroicons/react/20/solid';
 import Link from 'next/link';
+import { useFormState, useFormStatus } from 'react-dom';
+import { authenticate } from '@/app/lib/actions';
+import { ExclamationCircleIcon } from '@heroicons/react/24/outline';
 
 const LoginBox = styled(Box)({
   display: 'flex',
@@ -32,11 +36,6 @@ const FormContainer = styled(Container)({
   height: '100%',
 });
 
-const FormBox = styled(Box)({
-  width: '100%',
-  maxWidth: '500px',
-});
-
 const LogoContainer = styled('div')({
     height: '80px', 
     display: 'flex',
@@ -45,6 +44,7 @@ const LogoContainer = styled('div')({
   });
 
 export default function LoginForm(){
+  const [code, action] = useFormState(authenticate, undefined);
     return(
         <main className="flex min-h-screen flex-col p-6">
         <LogoContainer className='rounded-lg bg-blue-500 p-4'>
@@ -69,36 +69,58 @@ export default function LoginForm(){
                 <Typography variant="h4" component="h1" gutterBottom>
                   Se connecter
                 </Typography>
-                <FormBox component="form">
+                <form action={action} className='w-full max-w-lg'>
                   <TextField
                     label="Email"
                     variant="outlined"
                     margin="normal"
+                    type='email'
+                    id='email'
+                    name='email'
                     fullWidth
+                    required
                   />
                   <TextField
+                    id="password"
+                    name='password'
                     label="Password"
                     variant="outlined"
                     margin="normal"
                     fullWidth
                     type="password"
+                    required
                   />
                   <Grid item xs={12}>
-                    <Link href='/medecin' passHref>
-                      <Button className='bg-blue-500' type="submit" variant="contained" color="primary" fullWidth>
-                        Se connecter
-                      </Button>
-                    </Link>
+                      <LoginButton />
+                    <div className="flex h-8 items-end space-x-1">
+                      {(code!= null) && (
+                          <>
+                            <ExclamationCircleIcon className="h-5 w-5 text-red-500" />
+                            <p aria-live="polite" className="text-sm text-red-500">
+                              Informations d&apos;identification invalides
+                            </p>
+                          </>
+                        )}
+                    </div>
                   </Grid>
-                  <br />
                   <Grid item xs={12}>
                     <FormLabel>Vous n&apos;avez pas de compte ? <Link className="text-blue-500" href="/register">Créer un compte</Link></FormLabel>
                   </Grid>
-                </FormBox>
+                </form>
               </FormContainer>
             </Grid>
           </Grid>
         </LoginBox>
     </main>
     );
+}
+
+function LoginButton() {
+  const { pending } = useFormStatus();
+
+  return (
+    <Button className='bg-blue-500' type="submit" variant="contained" color="primary" fullWidth aria-disabled={pending}>
+      Se connecter<ArrowRightIcon className="ml-4 h-5 w-5 text-gray-50" />
+    </Button>
+  );
 }

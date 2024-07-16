@@ -1,4 +1,5 @@
 'use client';
+
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
@@ -11,7 +12,8 @@ import Tooltip from '@mui/material/Tooltip';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import Logout from '@mui/icons-material/Logout';
 import Link from 'next/link';
-import { HelpOutline } from '@mui/icons-material';
+import { signOut } from '@/auth';
+
 
 export default function AccountMenu() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -85,14 +87,12 @@ export default function AccountMenu() {
           </ListItemIcon>
           Besoin d`aide ?
         </MenuItem>
-        <Link href='/login'>
         <MenuItem onClick={handleClose}>
             <ListItemIcon>
                 <Logout fontSize="small" />
             </ListItemIcon>
                 Déconnexion
         </MenuItem>
-        </Link>
       </Menu>
     </React.Fragment>
   );
