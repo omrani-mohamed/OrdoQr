@@ -12,10 +12,11 @@ import Tooltip from '@mui/material/Tooltip';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import Logout from '@mui/icons-material/Logout';
 import Link from 'next/link';
-import { signOut } from '@/auth';
+import { useRouter } from 'next/navigation';
 
 
 export default function AccountMenu() {
+  const router = useRouter();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -24,6 +25,26 @@ export default function AccountMenu() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  async function signOut() {
+    try {
+      const response = await fetch('/api/auth', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      if (response.ok) {
+        router.push("/login");
+        console.log('Signed out successfully');
+      } else {
+        console.error('Failed to sign out');
+      }
+    } catch (error) {
+      console.error('Error signing out:', error);
+    }
+  }
+
   return (
     <React.Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
@@ -87,7 +108,7 @@ export default function AccountMenu() {
           </ListItemIcon>
           Besoin d`aide ?
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={() => signOut()}>
             <ListItemIcon>
                 <Logout fontSize="small" />
             </ListItemIcon>
