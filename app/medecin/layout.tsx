@@ -3,12 +3,16 @@ import Link from 'next/link';
 import Logo from '../ui/logo';
 import Footer from '../ui/footer';
 import AccountMenu from '../ui/medecin/AccountMenu';
+import dbConnect from '../lib/mongo';
 
-export default function Layout({
+
+export default async function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const conn = await dbConnect();
+
   return (
     <main className="flex min-h-screen flex-col p-4">
       <div className="mb-2 flex h-20 items-center justify-start rounded-md bg-blue-500 p-2 md:h-20">

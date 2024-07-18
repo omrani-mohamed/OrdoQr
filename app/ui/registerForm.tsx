@@ -42,6 +42,10 @@ export default function RegisterForm() {
       alert("Les mots de passe ne correspondent pas.");
       return;
     }
+    if (phone.length!== 8){
+      alert ("Il s'agit d'un numero de téléphone invalide");
+      return;
+    }
 
     try {
       const response = await fetch('/api/register', {

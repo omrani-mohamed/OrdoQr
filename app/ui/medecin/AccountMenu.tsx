@@ -13,6 +13,7 @@ import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import Logout from '@mui/icons-material/Logout';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { signOut } from 'next-auth/react';
 
 
 export default function AccountMenu() {
@@ -26,24 +27,10 @@ export default function AccountMenu() {
     setAnchorEl(null);
   };
 
-  async function signOut() {
-    try {
-      const response = await fetch('/api/auth', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      if (response.ok) {
-        router.push("/login");
-        console.log('Signed out successfully');
-      } else {
-        console.error('Failed to sign out');
-      }
-    } catch (error) {
-      console.error('Error signing out:', error);
-    }
-  }
+  const handleSignOut = async () => {
+    await signOut();
+    router.push("/login");
+  };
 
   return (
     <React.Fragment>
@@ -97,22 +84,22 @@ export default function AccountMenu() {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         <Link href="/medecin/donnees-personnelles">
-            <MenuItem onClick={handleClose}>
+          <MenuItem onClick={handleClose}>
             <Avatar /> Mon compte personnel
-            </MenuItem>
+          </MenuItem>
         </Link>
         <Divider />
         <MenuItem onClick={handleClose}>
           <ListItemIcon>
-            <HelpOutlineOutlinedIcon/>
+            <HelpOutlineOutlinedIcon />
           </ListItemIcon>
           Besoin d`aide ?
         </MenuItem>
-        <MenuItem onClick={() => signOut()}>
-            <ListItemIcon>
-                <Logout fontSize="small" />
-            </ListItemIcon>
-                Déconnexion
+        <MenuItem onClick={handleSignOut}>
+          <ListItemIcon>
+            <Logout fontSize="small" />
+          </ListItemIcon>
+          Déconnexion
         </MenuItem>
       </Menu>
     </React.Fragment>

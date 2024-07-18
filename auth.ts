@@ -5,14 +5,16 @@ import { z } from 'zod';
 import { sql } from '@vercel/postgres';
 import bcrypt from 'bcrypt';
  
-type User = {
+export type User = {
   id: string;
   name: string;
   email: string;
   password: string;
+  image : string;
 };
 
-async function getUser(email: string): Promise<User | undefined> {
+export async function getUser(email: string): Promise<User | undefined> {
+  
   try {
     const user = await sql<User>`SELECT * FROM users WHERE email=${email}`;
     return user.rows[0];
