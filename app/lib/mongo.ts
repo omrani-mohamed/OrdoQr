@@ -8,4 +8,5 @@ export default function dbConnect(){
     catch(e){
         throw new Error("failed to connect to the database");
     }
+    
 }
