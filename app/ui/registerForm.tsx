@@ -29,13 +29,13 @@ export default function RegisterForm() {
 
     const formData = new FormData(event.currentTarget);
 
-    const nom = formData.get('nom') as string;
-    const prenom = formData.get('prenom') as string;
+    const name = formData.get('name') as string;
+    const firstname = formData.get('firstname') as string;
     const email = formData.get('email') as string;
     const phone = formData.get('phone') as string;
     const password = formData.get('password') as string;
     const confpassword = formData.get('confpassword') as string;
-    const adress = formData.get('adress') as string;
+    const address = formData.get('address') as string;
     const specialty = formData.get('specialty') as string;
 
     if (password !== confpassword) {
@@ -52,13 +52,13 @@ export default function RegisterForm() {
         method: 'POST',
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
-          nom,
-          prenom,
+          name,
+          firstname,
           email,
           phone,
           password,
           role,
-          adress,
+          address,
           specialty: role === 'medecin' ? specialty : null,
         }),
       });
@@ -88,10 +88,10 @@ export default function RegisterForm() {
         <br />
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
-            <TextField label="Nom" type="text" name="nom" id="nom" variant="outlined" margin="normal" fullWidth required />
+            <TextField label="Nom" type="text" name="name" id="name" variant="outlined" margin="normal" fullWidth required />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <TextField label="Prénom" type="text" name="prenom" id="prenom" variant="outlined" margin="normal" fullWidth required />
+            <TextField label="Prénom" type="text" name="firstname" id="firstname" variant="outlined" margin="normal" fullWidth required />
           </Grid>
           <Grid item xs={12}>
             <TextField label="Email" type="email" name="email" id="email" variant="outlined" margin="normal" fullWidth required />
@@ -121,7 +121,7 @@ export default function RegisterForm() {
           )}
           {role === 'medecin' && (
             <Grid item xs={12}>
-              <TextField label="Adresse Cabinet" type="text" name="adress" id="adress" variant="outlined" margin="normal" fullWidth value={adress} onChange={(e) => setAdress(e.target.value)} />
+              <TextField label="Adresse Cabinet" type="text" name="address" id="address" variant="outlined" margin="normal" fullWidth value={adress} onChange={(e) => setAdress(e.target.value)} />
             </Grid>
           )}
           <Grid item xs={12}>

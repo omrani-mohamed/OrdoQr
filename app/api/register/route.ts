@@ -4,10 +4,8 @@ import dbConnect from "@/app/lib/mongo";
 import { createUser } from "@/app/queries/users";
 
 export const POST = async (request: Request) => {
-  const { nom, prenom, email, phone, password, role, specialty, adress } = await request.json();
+  const { name, firstname, email, phone, password, role, specialty, address } = await request.json();
 
-  console.log(nom, prenom, email, phone, password, role, specialty, adress);
-  
   // Connecting to the database
   await dbConnect();
   
@@ -18,14 +16,14 @@ export const POST = async (request: Request) => {
 
     // Form a db payload
     const newUser = {
-      nom,
-      prenom,
+      name,
+      firstname,
       email,
       phone,
       password: hashedPassword,
       role,
       specialty,
-      adress
+      address
     };
     
     // Update the db

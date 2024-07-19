@@ -1,11 +1,11 @@
 import mongoose , {Schema} from "mongoose";
 
 const userschema = new Schema({
-    nom: {
+    name: {
         required : true,
         type : String,
     },
-    prenom :{
+    firstname :{
         type : String,
         required :true,
     },
@@ -27,11 +27,11 @@ const userschema = new Schema({
     },
     specialty : {
         type : String,
-        required : true,
+        required : false,
     },
-    adress : {
+    address : {
         type : String,
-        required : true,
+        required : false,
     }
 })
  export const User = mongoose.models.User ?? mongoose.model("User", userschema);

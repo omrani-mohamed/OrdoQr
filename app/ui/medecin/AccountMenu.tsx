@@ -85,7 +85,7 @@ export default function AccountMenu() {
       >
         <Link href="/medecin/donnees-personnelles">
           <MenuItem onClick={handleClose}>
-            <Avatar /> Mon compte personnel
+            <Avatar/> Mon compte professionnel
           </MenuItem>
         </Link>
         <Divider />

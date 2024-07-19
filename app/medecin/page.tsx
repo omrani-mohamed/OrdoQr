@@ -1,7 +1,5 @@
 import { lusitana } from '../ui/fonts';
 import { auth } from "@/auth";
-import UserAvatar from "@/app/ui/medecin/userAvatar"
-
 
 export default async function HomePage () {
   const session = await auth();
@@ -10,7 +8,7 @@ export default async function HomePage () {
 
   return (
     <main>
-      <h1 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>Biencenue, {session.user.email}</h1> 
+      <h1 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>Biencenue, {session.user.name}</h1> 
     </main>
   );
 }
