@@ -55,6 +55,7 @@ export default function CreatePatientForm() {
         }),
       });
 
+      
       if (response.status === 201) {
         alert("Le patient a été créer avec succée.");
         router.push("/medecin/liste-de-patients");
