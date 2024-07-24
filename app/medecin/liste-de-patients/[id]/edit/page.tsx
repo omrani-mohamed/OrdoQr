@@ -15,7 +15,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           },
         ]}
       />
-      <EditPatientForm />
+      <EditPatientForm patientID={id} />
     </main>
   );
 }

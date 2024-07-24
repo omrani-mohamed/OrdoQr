@@ -1,5 +1,8 @@
+"use client";
+
 import {PlusIcon,PencilIcon,TrashIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
+import React from 'react';
 
 export function CreatePatient() {
     return (
@@ -24,16 +27,49 @@ export function CreatePatient() {
     );
   }
   
-  export function DeletePatient({ id }: { id: string }) {
+  interface DeletePatientProps {
+    id: string;
+  }
+
+  export function DeletePatient({ id }: DeletePatientProps) {
+    const handleDelete = async (event: React.FormEvent) => {
+      event.preventDefault();
+  
+      const confirmed = window.confirm("Êtes-vous sûr de vouloir supprimer ce patient ?");
+      if (!confirmed) return;
+  
+      try {
+        const response = await fetch(`/api/deletePatientById?id=${id}`, {
+          method: 'DELETE',
+        });
+  
+        if (response.ok) {
+          alert('Patient supprimé avec succès');
+
+          window.location.reload(); 
+        } else {
+          const error = await response.json();
+          alert(`Failed to delete patient: ${error.error}`);
+        }
+      } catch (error) {
+        console.error('Échec de la suppression du patient:', error);
+        alert('une erreur inattendue est apparue');
+      }
+    };
+  
     return (
-      <form>
-        <button className="rounded-md border p-2 hover:bg-gray-100">
+      <form onSubmit={handleDelete}>
+        <button
+          type="submit"
+          className="rounded-md border p-2 hover:bg-gray-100"
+        >
           <span className="sr-only">Supprimer</span>
           <TrashIcon className="w-5" />
         </button>
       </form>
     );
   }
+  
 
   export function CreatePerscription() {
     return (
