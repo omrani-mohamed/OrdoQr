@@ -13,6 +13,7 @@ import EditCalendarIcon from '@mui/icons-material/EditCalendar';
 import { useRouter } from 'next/navigation';
 import {Radio, RadioGroup, FormControlLabel} from '@mui/material';
 import React, { useState } from 'react';
+import { revalidatePath } from 'next/cache';
 
 export default function CreatePatientForm() {
   const router = useRouter();
@@ -39,9 +40,9 @@ export default function CreatePatientForm() {
       alert ("Il s'agit d'un numero de téléphone invalide");
       return;
     }
-
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || '';
     try {
-      const response = await fetch('/api/createPatient', {
+      const response = await fetch(`${baseUrl}/api/createPatient`, {
         method: 'POST',
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
@@ -58,6 +59,7 @@ export default function CreatePatientForm() {
       
       if (response.status === 201) {
         alert("Le patient a été créer avec succée.");
+        revalidatePath("/medecin/liste-de-patients");
         router.push("/medecin/liste-de-patients");
       }
 
