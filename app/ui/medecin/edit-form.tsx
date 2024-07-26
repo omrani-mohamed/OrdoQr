@@ -12,6 +12,9 @@ import EditCalendarIcon from '@mui/icons-material/EditCalendar';
 import { Radio, RadioGroup, FormControlLabel } from '@mui/material';
 import Link from 'next/link';
 import { Button } from './button';
+import {useRouter} from 'next/navigation';
+import { revalidatePath } from 'next/cache';
+
 
 async function fetchPatientData(patientID: string) {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || '';
@@ -106,11 +109,15 @@ export default function EditPatientForm({ patientID }: { patientID: string }) {
     setFormData({ ...formData, [name]: value });
   };
 
+  const router = useRouter();
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const result = await updatePatient(patientID, formData);
     if (result) {
       alert(result.message);
+      router.push("/medecin/liste-de-patients");
+      revalidatePath("/medecin/liste-de-patients");
     }
   };
 

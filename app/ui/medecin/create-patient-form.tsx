@@ -59,8 +59,8 @@ export default function CreatePatientForm() {
       
       if (response.status === 201) {
         alert("Le patient a été créer avec succée.");
-        revalidatePath("/medecin/liste-de-patients");
         router.push("/medecin/liste-de-patients");
+        revalidatePath("/medecin/liste-de-patients");
       }
 
     } catch (error: any) {
